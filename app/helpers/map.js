@@ -16,5 +16,6 @@ export const TopoJSON = L && L.GeoJSON.extend({
 });
 
 export function getSqlQuery(query) {
-  return fetch(ENDPOINT_SQL + query).then(res => res.json());
+  const singleLineQuery = query.replace(/\r?\n|\r/g, ' ');
+  return fetch(ENDPOINT_SQL + singleLineQuery).then(res => res.json());
 }

@@ -10,10 +10,11 @@
   "scripts": {
     "test": "NODE_PATH=./app jest",
     "test --watch": "NODE_PATH=./app jest --watch",
-    "dev": "./node_modules/nodemon/bin/nodemon.js --ignore 'app/' --exec npm run start",
+    "start": "node server.js",
+    "dev": "nodemon --ignore 'app/' server.js",
     "build": "webpack --config ./config/webpack.config.js --progress --profile --colors",
     "postinstall": "npm run build",
-    "lint": "./node_modules/.bin/eslint . --quiet",
+    "lint": "eslint . --quiet",
     "prepush": "npm run lint",
     "extract": "i18n_extract --source=./app --locales=./app/locales",
     "import": "i18n_import --locales=./app/locales --translations=./app/locales"

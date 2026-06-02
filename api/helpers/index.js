@@ -39,7 +39,7 @@ function mergeNames(data, params) {
 }
 
 function runQuery(q, options = {}) {
-  const query = q.replace(/^\s*[\r\n]/gm, ''); // remove empty lines
+  const query = q.replace(/\r?\n|\r/g, ' '); // remove all newlines
   if (process.env.NODE_ENV === 'development') {
     console.log('RUNNING QUERY: \n', query);
   }
